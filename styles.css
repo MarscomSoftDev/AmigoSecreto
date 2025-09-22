@@ -1,0 +1,281 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.div_Superior {
+  text-align: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.div_Superior h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.div_Superior img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #f8f9fa;
+  padding: 10px;
+  border: 3px solid #667eea;
+}
+
+/* Sección inferior */
+.div_Inferior {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.div_Inferior h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+/* Input de texto */
+#inputAmigo {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+#inputAmigo:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#inputAmigo::placeholder {
+  color: #999;
+}
+
+/* Botones */
+button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+button[onclick="almacenarTextoVariable()"] {
+  background: #4caf50;
+  color: white;
+}
+
+button[onclick="almacenarTextoVariable()"]:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+button[onclick="sortearAmigos()"] {
+  background: #ff6b6b;
+  color: white;
+}
+
+button[onclick="sortearAmigos()"]:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Efectos hover para botones */
+button:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .div_Superior,
+  .div_Inferior {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .div_Superior h1 {
+    font-size: 2em;
+  }
+
+  .div_Superior img {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* Animación para el sorteo */
+@keyframes celebrar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.celebracion {
+  animation: celebrar 0.5s ease-in-out;
+}
+
+/* Estilos para la lista de amigos */
+#listaAmigosContainer {
+  margin-top: 20px;
+  text-align: left;
+}
+
+#listaAmigosContainer h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+#contadorAmigos {
+  background: #667eea;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 50%;
+  font-size: 0.9em;
+}
+
+#listaAmigos {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+}
+
+#listaAmigos li {
+  padding: 8px 12px;
+  margin: 5px 0;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#listaAmigos li:hover {
+  background: #f0f0f0;
+}
+
+.boton-eliminar {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.boton-eliminar:hover {
+  background: #ff5252;
+}
+
+/* Estilos para el resultado del sorteo */
+.resultado-sorteo {
+  margin-top: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  display: none;
+}
+
+.resultado-sorteo.mostrar {
+  display: block;
+  animation: aparecer 0.5s ease-in-out;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar personalizado */
+#listaAmigos::-webkit-scrollbar {
+  width: 6px;
+}
+
+#listaAmigos::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#listaAmigos::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}

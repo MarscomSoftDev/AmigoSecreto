@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amigo secretot</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Amigo secreto</title>
   </head>
   <body>
     <div class="div_Superior">
       <h1>Amigo Secreto</h1>
-      <img src="imagenes/amigo-secreto.png" alt="" />
+      <img src="imagenes/amigo-secreto.png" alt="imagen de amigo secreto" />
     </div>
     <div class="div_Inferior">
       <h2>Digite el nombre de sus amigos</h2>
-      <input type="text" placeholder="Escribe un nombre" />
-      <button onclick="almacenarTextoVariable()">Añadir</button>
-      <button></button>
+      <input type="text" id="inputAmigo" placeholder="Escribe un nombre" />
+      <button type="button" onclick="almacenarTextoVariable()">Añadir</button>
+      <button type="button" onclick="sortearAmigos()">Sortear Amigo</button>
+
+      <!-- Contenedor para mostrar la lista de amigos -->
+      <div id="listaAmigosContainer">
+        <h3>Amigos añadidos: <span id="contadorAmigos">0</span></h3>
+        <ul id="listaAmigos"></ul>
+      </div>
+
+      <!-- Área para mostrar el resultado del sorteo -->
+      <div id="resultadoSorteo" class="resultado-sorteo"></div>
     </div>
     <footer>Desarrollado por Marscom</footer>
+    <script src="script.js"></script>
   </body>
 </html>
